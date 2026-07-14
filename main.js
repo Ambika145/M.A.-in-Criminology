@@ -1,5 +1,5 @@
 /**
- * M.Sc AI & Data Science Landing Page
+ * M.A. Criminology and Criminal Justice Landing Page
  * Interactions: carousels, FAQ accordion, form handling
  */
 

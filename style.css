@@ -590,7 +590,7 @@ section {
   margin-top: 0;
   overflow: visible;
   letter-spacing: -0.03em;
-  background: linear-gradient(90deg, #7b1fa2 0%, #1a237e 100%);
+  background: linear-gradient(90deg, #7b1fa2 0%, #00bcd4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -742,6 +742,11 @@ section {
   display: block;
   margin: 0;
   transform: none;
+  opacity: 1;
+  filter: none;
+  mix-blend-mode: normal;
+  -webkit-mask-image: none;
+  mask-image: none;
 }
 
 .hero-right {
@@ -2952,6 +2957,86 @@ section {
   font-weight: 500;
 }
 
+.tuition-fees-note {
+  max-width: 1100px;
+  margin: 1.25rem auto 0;
+  color: #fff;
+  font-size: clamp(1rem, 1.25vw, 1.2rem);
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.tuition-eligibility-stack {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.75rem, 3vw, 2.5rem);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.tuition-eligibility-block-main {
+  width: 100%;
+}
+
+.tuition-check-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.tuition-check-list li {
+  position: relative;
+  padding-left: 2.75rem;
+  color: #fff;
+  font-size: clamp(1rem, 1.3vw, 1.25rem);
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.tuition-check-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  width: 1.65rem;
+  height: 1.65rem;
+  border-radius: 0.35rem;
+  border: 2px solid #b388ff;
+  background:
+    linear-gradient(145deg, rgba(123, 31, 162, 0.55), rgba(0, 172, 193, 0.35)),
+    rgba(26, 26, 124, 0.65);
+  box-shadow: 0 0 12px rgba(179, 136, 255, 0.45);
+}
+
+.tuition-check-list li::after {
+  content: "";
+  position: absolute;
+  left: 0.48rem;
+  top: 0.42rem;
+  width: 0.55rem;
+  height: 0.9rem;
+  border: solid #fff;
+  border-width: 0 2.5px 2.5px 0;
+  transform: rotate(45deg);
+}
+
+.tuition-eligibility-essay {
+  margin: 0.35rem 0 1.1rem;
+  color: #fff;
+  font-size: clamp(1.05rem, 1.4vw, 1.35rem);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.tuition-eligibility-interview {
+  margin: 0;
+  max-width: 52rem;
+}
+
 .tuition-eligibility-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
@@ -3584,6 +3669,11 @@ section {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.skills-slide--four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px 24px;
+}
+
 .skills-slide--pair {
   justify-content: center;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -3718,6 +3808,7 @@ section {
 
 @media screen and (max-width: 1199px) {
   .skills-slide--three,
+  .skills-slide--four,
   .skills-slide--pair {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -3735,6 +3826,7 @@ section {
 
 @media screen and (max-width: 991px) {
   .skills-slide--three,
+  .skills-slide--four,
   .skills-slide--pair {
     grid-template-columns: 1fr;
     gap: 28px;
