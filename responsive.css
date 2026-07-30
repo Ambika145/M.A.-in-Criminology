@@ -695,30 +695,51 @@ iframe {
   }
 
   .programme-overview-inner {
-    grid-template-columns: 1fr !important;
-    gap: 28px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+
+  .programme-overview-content,
+  .programme-overview-media,
+  .programme-overview-side {
+    display: contents !important;
   }
 
   .programme-overview-heading {
+    order: 1 !important;
     font-size: clamp(1.65rem, 5vw, 2.1rem) !important;
-    margin-bottom: 1rem !important;
+    margin-bottom: 0 !important;
+  }
+
+  .programme-overview-campus {
+    order: 2 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .programme-overview-finance {
+    order: 3 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .programme-overview-copy {
+    order: 4 !important;
+  }
+
+  .programme-learn-more-btn {
+    order: 5 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 64px !important;
+    padding: 0.95rem 1.15rem !important;
+    font-size: 1.1rem !important;
   }
 
   .programme-overview-text {
     font-size: clamp(0.88rem, 2.8vw, 0.98rem) !important;
     line-height: 1.65 !important;
-  }
-
-  .programme-overview-media {
-    grid-template-columns: 1fr !important;
-    max-width: 100% !important;
-    width: 100% !important;
-    gap: 14px !important;
-  }
-
-  .programme-overview-campus,
-  .programme-overview-finance {
-    width: 100%;
   }
 
   .programme-overview-campus .programme-overview-img,
@@ -728,12 +749,6 @@ iframe {
     min-height: 0 !important;
     aspect-ratio: 16 / 11;
     object-fit: cover;
-  }
-
-  .programme-learn-more-btn {
-    min-height: 64px !important;
-    padding: 0.95rem 1.15rem !important;
-    font-size: 1.1rem !important;
   }
 }
 

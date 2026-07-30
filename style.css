@@ -1995,6 +1995,10 @@ section {
   min-width: 0;
 }
 
+.programme-overview-copy {
+  min-width: 0;
+}
+
 .programme-overview-heading {
   font-size: clamp(2rem, 3.2vw, 2.75rem);
   font-weight: 800;
@@ -2112,19 +2116,56 @@ section {
   }
 
   .programme-overview-inner {
-    grid-template-columns: 1fr;
-    gap: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
   }
 
-  .programme-overview-media {
-    max-width: 560px;
-    margin: 0 auto;
+  .programme-overview-content,
+  .programme-overview-media,
+  .programme-overview-side {
+    display: contents;
+  }
+
+  .programme-overview-heading {
+    order: 1;
+    margin-bottom: 0;
+  }
+
+  .programme-overview-campus {
+    order: 2;
+  }
+
+  .programme-overview-finance {
+    order: 3;
+  }
+
+  .programme-overview-copy {
+    order: 4;
+  }
+
+  .programme-learn-more-btn {
+    order: 5;
+  }
+
+  .programme-overview-campus,
+  .programme-overview-finance {
     width: 100%;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .programme-overview-campus .programme-overview-img {
     aspect-ratio: 16 / 11;
     min-height: 0;
+  }
+
+  .programme-learn-more-btn {
+    width: 100%;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -2137,16 +2178,8 @@ section {
     font-size: 1.75rem;
   }
 
-  .programme-overview-media {
-    grid-template-columns: 1fr;
-  }
-
-  .programme-overview-campus {
-    order: 1;
-  }
-
-  .programme-overview-side {
-    order: 2;
+  .programme-overview-inner {
+    gap: 18px;
   }
 
   .programme-learn-more-btn {
