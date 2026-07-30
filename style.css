@@ -5107,19 +5107,22 @@ section {
   }
 
   .faculty-track {
-    gap: 16px;
+    gap: 0;
+    scroll-padding-inline: 0;
   }
 
   .faculty-member {
-    flex: 0 0 calc((100% - 16px) / 2);
-    width: calc((100% - 16px) / 2);
-    min-width: calc((100% - 16px) / 2);
-    max-width: calc((100% - 16px) / 2);
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    scroll-snap-align: start;
+    box-sizing: border-box;
   }
 
   .faculty-photo-frame {
-    width: min(210px, 100%);
-    max-width: 210px;
+    width: min(220px, 72%);
+    max-width: 220px;
   }
 
   .faculty-arrow {
@@ -5154,18 +5157,18 @@ section {
   }
 
   .faculty-track {
-    gap: 14px;
+    gap: 0;
   }
 
   .faculty-member {
-    flex: 0 0 78%;
-    width: 78%;
-    min-width: 78%;
-    max-width: 78%;
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
   }
 
   .faculty-photo-frame {
-    width: min(230px, 88%);
+    width: min(230px, 78%);
     max-width: 230px;
   }
 

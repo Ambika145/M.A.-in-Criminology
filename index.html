@@ -17,8 +17,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     
-        <link rel="stylesheet" href="style.css?v=202607301945">
-        <link rel="stylesheet" href="responsive.css?v=202607301945">
+        <link rel="stylesheet" href="style.css?v=202607302000">
+        <link rel="stylesheet" href="responsive.css?v=202607302000">
 
     <!-- Critical: hero layout; enquiry form scrolls inside card only -->
     <style>
@@ -1257,7 +1257,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const member = track.querySelector('.faculty-member');
     if (!member) return 256;
     const styles = getComputedStyle(track);
-    const gap = parseFloat(styles.columnGap || styles.gap) || 24;
+    const gap = parseFloat(styles.columnGap || styles.gap) || 0;
     return member.offsetWidth + gap;
   }
 
@@ -1268,7 +1268,9 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function scrollFaculty(direction) {
-    track.scrollBy({ left: direction * getScrollAmount(), behavior: 'smooth' });
+    const amount = getScrollAmount();
+    const nextLeft = Math.round(track.scrollLeft / amount) * amount + direction * amount;
+    track.scrollTo({ left: Math.max(0, nextLeft), behavior: 'smooth' });
   }
 
   prevBtn.addEventListener('click', function () {

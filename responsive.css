@@ -890,26 +890,28 @@ iframe {
   }
 
   .faculty-track {
-    gap: 14px !important;
-    scroll-padding-inline: 8px;
+    gap: 0 !important;
+    scroll-padding-inline: 0 !important;
     padding-bottom: 8px !important;
   }
 
   .faculty-member {
-    flex: 0 0 min(42%, 200px) !important;
-    width: min(42%, 200px) !important;
-    min-width: min(42%, 200px) !important;
-    max-width: min(42%, 200px) !important;
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    scroll-snap-align: start !important;
+    box-sizing: border-box !important;
   }
 
   .faculty-photo-frame {
-    width: min(180px, 100%) !important;
-    max-width: 180px !important;
+    width: min(200px, 72%) !important;
+    max-width: 200px !important;
     margin-bottom: 12px !important;
   }
 
   .faculty-photo {
-    max-width: 180px !important;
+    max-width: 200px !important;
   }
 
   .faculty-name {
@@ -926,7 +928,7 @@ iframe {
   .faculty-arrow {
     width: 36px !important;
     height: 36px !important;
-    top: 78px !important;
+    top: 90px !important;
     font-size: 15px !important;
   }
 
@@ -1063,28 +1065,33 @@ iframe {
 
 @media screen and (max-width: 767px) {
   .faculty-member {
-    flex: 0 0 min(70vw, 240px) !important;
-    width: min(70vw, 240px) !important;
-    min-width: min(70vw, 240px) !important;
-    max-width: min(70vw, 240px) !important;
-    scroll-snap-align: center;
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    scroll-snap-align: start !important;
   }
 
   .faculty-photo-frame {
-    width: min(200px, 92%) !important;
-    max-width: 200px !important;
+    width: min(220px, 72%) !important;
+    max-width: 220px !important;
   }
 
   .faculty-photo {
-    max-width: 200px !important;
+    max-width: 220px !important;
   }
 
   .faculty-slider-wrap {
-    padding: 0 38px !important;
+    padding: 0 40px !important;
+  }
+
+  .faculty-track {
+    gap: 0 !important;
+    scroll-padding-inline: 0 !important;
   }
 
   .faculty-arrow {
-    top: 88px !important;
+    top: 100px !important;
   }
 
   .recognition-section {
@@ -1127,20 +1134,20 @@ iframe {
   }
 
   .faculty-member {
-    flex: 0 0 min(78vw, 260px) !important;
-    width: min(78vw, 260px) !important;
-    min-width: min(78vw, 260px) !important;
-    max-width: min(78vw, 260px) !important;
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
   }
 
   .faculty-slider-wrap {
-    padding: 0 34px !important;
+    padding: 0 36px !important;
   }
 
   .faculty-arrow {
     width: 32px !important;
     height: 32px !important;
-    top: 82px !important;
+    top: 96px !important;
   }
 
   .recognition-title {
