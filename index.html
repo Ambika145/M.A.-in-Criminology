@@ -17,8 +17,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     
-        <link rel="stylesheet" href="style.css?v=202607141447">
-        <link rel="stylesheet" href="responsive.css?v=202607141447">
+        <link rel="stylesheet" href="style.css?v=202607301945">
+        <link rel="stylesheet" href="responsive.css?v=202607301945">
 
     <!-- Critical: hero layout; enquiry form scrolls inside card only -->
     <style>
@@ -138,7 +138,10 @@
         .hero-section {
           min-height: auto !important;
           max-height: none !important;
-          overflow: visible !important;
+          overflow-x: clip !important;
+          overflow-y: visible !important;
+          width: 100% !important;
+          max-width: 100% !important;
         }
 
         .hero-section .header-logo-jgu,
@@ -810,19 +813,19 @@
             </thead>
             <tbody>
               <tr>
-                <td>Registration Amount</td>
-                <td>INR 25,000</td>
-                <td>Upon acceptance of the offer letter</td>
+                <td data-label="Fee Category">Registration Amount</td>
+                <td data-label="Amount">INR 25,000</td>
+                <td data-label="Due Date">Upon acceptance of the offer letter</td>
               </tr>
               <tr>
-                <td>1st Installment</td>
-                <td>INR 1,25,000</td>
-                <td>Before Batch Commencement</td>
+                <td data-label="Fee Category">1st Installment</td>
+                <td data-label="Amount">INR 1,25,000</td>
+                <td data-label="Due Date">Before Batch Commencement</td>
               </tr>
               <tr>
-                <td>2nd Installment</td>
-                <td>INR 1,25,000</td>
-                <td>By 15th Jan 2027</td>
+                <td data-label="Fee Category">2nd Installment</td>
+                <td data-label="Amount">INR 1,25,000</td>
+                <td data-label="Due Date">By 15th Jan 2027</td>
               </tr>
             </tbody>
           </table>
@@ -1092,7 +1095,7 @@
   <div class="recognition-container">
     <h2 class="recognition-title">Recognitions and Accreditations</h2>
 
-    <div class="recognition-grid">
+    <div class="recognition-grid" id="recognitionGrid">
       <div class="rec-card rec-card-small">
         <img src="assets/recog-1-qs-top150.png" alt="TOP 150 Under 50 Globally - QS Young University Rankings 2022">
       </div>
@@ -1113,6 +1116,8 @@
         <img src="assets/recog-5-online-learning.png" alt="Ranked No. 1 Globally for Online Learning - THE 2024">
       </div>
     </div>
+
+    <div class="recognition-dots" id="recognitionDots" role="tablist" aria-label="Recognition slides"></div>
   </div>
 </section>
 <section class="faq-section section-global">
@@ -1379,14 +1384,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (!viewport || !prevBtn || !nextBtn) return;
 
-  const slides = Array.from(viewport.querySelectorAll('.features-slide'));
-  if (!slides.length) return;
+  function isMobileFeatures() {
+    return window.matchMedia('(max-width: 767px)').matches;
+  }
+
+  function getItems() {
+    if (isMobileFeatures()) {
+      return Array.from(viewport.querySelectorAll('.feature-card'));
+    }
+    return Array.from(viewport.querySelectorAll('.features-slide'));
+  }
 
   let currentIndex = 0;
 
   function goToSlide(index) {
-    currentIndex = Math.max(0, Math.min(index, slides.length - 1));
-    const target = slides[currentIndex];
+    const items = getItems();
+    if (!items.length) return;
+
+    currentIndex = Math.max(0, Math.min(index, items.length - 1));
+    const target = items[currentIndex];
 
     if (target) {
       viewport.scrollTo({
@@ -1399,17 +1415,21 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function updateArrows() {
+    const items = getItems();
     prevBtn.disabled = currentIndex <= 0;
-    nextBtn.disabled = currentIndex >= slides.length - 1;
+    nextBtn.disabled = currentIndex >= items.length - 1;
   }
 
   function syncIndexFromScroll() {
+    const items = getItems();
+    if (!items.length) return;
+
     const scrollLeft = viewport.scrollLeft;
     let closestIndex = 0;
     let smallestDiff = Infinity;
 
-    slides.forEach(function (slide, index) {
-      const diff = Math.abs(slide.offsetLeft - scrollLeft);
+    items.forEach(function (item, index) {
+      const diff = Math.abs(item.offsetLeft - scrollLeft);
       if (diff < smallestDiff) {
         smallestDiff = diff;
         closestIndex = index;
@@ -1430,7 +1450,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   viewport.addEventListener('scroll', syncIndexFromScroll, { passive: true });
   window.addEventListener('resize', function () {
-    goToSlide(currentIndex);
+    currentIndex = 0;
+    goToSlide(0);
   });
 
   goToSlide(0);
@@ -1476,6 +1497,74 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   switchTuitionTab('fees');
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const grid = document.getElementById('recognitionGrid');
+  const dotsContainer = document.getElementById('recognitionDots');
+
+  if (grid && dotsContainer) {
+    const cards = Array.from(grid.querySelectorAll('.rec-card'));
+    let currentIndex = 0;
+    let scrollTimer = null;
+
+    function buildDots() {
+      dotsContainer.innerHTML = '';
+      cards.forEach(function (_, i) {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'recognition-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to recognition ' + (i + 1));
+        dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+        dot.addEventListener('click', function () {
+          scrollToCard(i);
+        });
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    function updateDots(index) {
+      currentIndex = index;
+      const dots = dotsContainer.querySelectorAll('.recognition-dot');
+      dots.forEach(function (dot, i) {
+        const isActive = i === index;
+        dot.classList.toggle('active', isActive);
+        dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+    }
+
+    function scrollToCard(index) {
+      const card = cards[index];
+      if (!card) return;
+      grid.scrollTo({ left: card.offsetLeft, behavior: 'smooth' });
+      updateDots(index);
+    }
+
+    function getNearestIndex() {
+      const left = grid.scrollLeft;
+      let nearest = 0;
+      let minDist = Infinity;
+      cards.forEach(function (card, i) {
+        const dist = Math.abs(card.offsetLeft - left);
+        if (dist < minDist) {
+          minDist = dist;
+          nearest = i;
+        }
+      });
+      return nearest;
+    }
+
+    grid.addEventListener('scroll', function () {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(function () {
+        updateDots(getNearestIndex());
+      }, 60);
+    }, { passive: true });
+
+    buildDots();
+  }
 });
 </script>
 
