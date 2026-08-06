@@ -298,7 +298,7 @@ section {
     max-height: var(--hero-form-iframe-h) !important;
   }
 
-  .hero-info-bar {
+  .hero-bottom-bars {
     grid-row: 2;
     flex: none;
     flex-shrink: 0;
@@ -306,6 +306,18 @@ section {
     visibility: visible;
     opacity: 1;
     margin-top: var(--hero-image-info-gap);
+    position: relative;
+    z-index: 5;
+    width: 100%;
+  }
+
+  .hero-info-bar {
+    flex: none;
+    flex-shrink: 0;
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    margin-top: 0;
     position: relative;
     z-index: 5;
   }
@@ -967,12 +979,38 @@ section {
   overflow: hidden;
 }
 
+.hero-scholarship-bar {
+  background: #3f2a8c;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0.55rem 1rem;
+  text-align: center;
+  position: relative;
+  z-index: 5;
+}
+
+.hero-scholarship-text {
+  margin: 0 auto;
+  max-width: 1320px;
+  color: #fff;
+  font-size: clamp(0.78rem, 1.05vw, 0.95rem);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
 @media screen and (min-width: 992px) {
-  .hero-info-bar {
+  .hero-info-bar,
+  .hero-scholarship-bar,
+  .hero-bottom-bars {
     width: 100vw;
     max-width: 100vw;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
+  }
+
+  .hero-info-bar {
     margin-top: 0;
   }
 }
@@ -4969,9 +5007,20 @@ iframe {
     max-height: 100% !important;
   }
 
-  .hero-info-bar {
+  .hero-bottom-bars {
     grid-row: 2 !important;
     margin-top: var(--hero-image-info-gap) !important;
+    flex: none !important;
+    flex-shrink: 0 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 5 !important;
+    width: 100% !important;
+  }
+
+  .hero-info-bar {
+    margin-top: 0 !important;
     flex: none !important;
     flex-shrink: 0 !important;
     display: block !important;
@@ -5470,6 +5519,14 @@ iframe {
 @media screen and (max-width: 767px) {
   .hero-info-bar {
     padding: 0.55rem 0.35rem !important;
+  }
+
+  .hero-scholarship-bar {
+    padding: 0.5rem 0.75rem !important;
+  }
+
+  .hero-scholarship-text {
+    font-size: clamp(0.7rem, 3.2vw, 0.82rem) !important;
   }
 
   .hero-info-item {
