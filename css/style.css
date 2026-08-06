@@ -182,8 +182,9 @@ section {
     min-height: 0;
     max-height: 100%;
     overflow: hidden;
-    padding-bottom: 0;
+    padding-bottom: clamp(1rem, 2.8vh, 1.75rem);
     margin-bottom: 0;
+    box-sizing: border-box;
   }
 
   .hero-center {
@@ -232,11 +233,19 @@ section {
     flex-direction: column;
     justify-content: center;
     margin-top: 0;
-    padding: 0.5rem 0.75rem 0.75rem 0;
+    padding: 1.1rem 0.75rem 1.5rem 0;
     transform: none;
-    overflow: hidden;
+    overflow: visible;
     align-items: flex-start;
     min-height: 0;
+    max-height: 100%;
+    box-sizing: border-box;
+  }
+
+  .hero-left .btn-apply-now {
+    margin-bottom: 0.75rem;
+    position: relative;
+    z-index: 12;
   }
 
   .hero-title,
@@ -307,7 +316,7 @@ section {
     opacity: 1;
     margin-top: var(--hero-image-info-gap);
     position: relative;
-    z-index: 5;
+    z-index: 2;
     width: 100%;
   }
 
@@ -319,7 +328,7 @@ section {
     opacity: 1;
     margin-top: 0;
     position: relative;
-    z-index: 5;
+    z-index: 2;
   }
 }
 
@@ -436,7 +445,7 @@ section {
 
 .hero-header {
   width: 100%;
-  padding: 1rem 0 0.625rem;
+  padding: 1rem 0 1.25rem;
   flex-shrink: 0;
   position: relative;
   z-index: 10;
@@ -571,23 +580,24 @@ section {
 
 .hero-left {
   max-width: none;
-  padding: 0.5rem 0.5rem 0.5rem 0;
+  padding: 1.25rem 0.5rem 0.5rem 0;
   position: relative;
   z-index: 4;
   overflow: visible;
   align-self: center;
-  margin-top: -1.25rem;
+  margin-top: 0;
   transform: none;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 0;
 }
 
 .hero-title {
   font-size: clamp(2rem, 3.4vw, 2.85rem);
   font-weight: 800;
-  line-height: 1.14;
-  margin-bottom: 0;
+  line-height: 1.22;
+  margin: 0.35rem 0 0;
   color: #000;
   overflow: visible;
   letter-spacing: -0.02em;
@@ -596,7 +606,7 @@ section {
   max-width: 100%;
   position: relative;
   z-index: 6;
-  padding-right: 0.15em;
+  padding: 0.18em 0.15em 0.08em 0;
   overflow-wrap: break-word;
 }
 
@@ -680,6 +690,7 @@ section {
   visibility: visible !important;
   opacity: 1 !important;
   margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
   padding: 0.9rem 2.85rem;
   background: #fff;
   border: 3px solid transparent;
@@ -702,7 +713,7 @@ section {
     0 0 0 1px rgba(123, 31, 162, 0.1);
   flex-shrink: 0;
   position: relative;
-  z-index: 8;
+  z-index: 12;
   align-self: flex-start;
 }
 
@@ -1002,8 +1013,14 @@ section {
 
 @media screen and (min-width: 992px) {
   .hero-info-bar,
-  .hero-scholarship-bar,
   .hero-bottom-bars {
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+
+  .hero-scholarship-bar {
     width: 100vw;
     max-width: 100vw;
     margin-left: calc(50% - 50vw);
@@ -1071,10 +1088,11 @@ section {
     align-items: stretch;
     min-height: 0;
     margin-bottom: 0;
-    padding-bottom: 0;
+    padding-bottom: clamp(1rem, 2.8vh, 1.75rem);
     grid-template-columns: minmax(0, 1.48fr) minmax(0, 1.35fr) minmax(0, 1fr);
     column-gap: clamp(0.625rem, 1cqi, 1rem);
     overflow: hidden;
+    box-sizing: border-box;
   }
 
   .hero-left {
@@ -1082,9 +1100,9 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0.5rem 0.75rem 0.75rem 1rem;
+    padding: 0.75rem 0.75rem 0.75rem 1rem;
     overflow: visible;
-    margin-top: -1rem;
+    margin-top: 0;
     align-items: flex-start;
   }
 
@@ -1092,7 +1110,9 @@ section {
     font-size: clamp(2.1rem, 3.2vw, 2.85rem);
     width: 100%;
     max-width: 100%;
-    padding-right: 0.15em;
+    padding: 0.12em 0.15em 0.06em 0;
+    line-height: 1.2;
+    overflow: visible;
   }
 
   .hero-title-line,
@@ -1208,15 +1228,18 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0.5rem 0.75rem;
-    margin-top: -1.25rem;
+    padding: 0.75rem 0.75rem;
+    margin-top: 0;
+    overflow: visible;
   }
 
   .hero-title {
     font-size: clamp(1.5rem, 2.6vw, 2.1rem);
     width: 100%;
     max-width: 100%;
-    padding-right: 0.15em;
+    padding: 0.12em 0.15em 0.06em 0;
+    line-height: 1.2;
+    overflow: visible;
   }
 
   .hero-student-img {
@@ -4951,9 +4974,25 @@ iframe {
     flex: 1 1 auto !important;
     min-height: 0 !important;
     max-height: 100% !important;
-    padding-bottom: 0 !important;
+    padding-bottom: clamp(1rem, 2.8vh, 1.75rem) !important;
     margin-bottom: 0 !important;
     overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-left {
+    align-self: center !important;
+    justify-content: center !important;
+    padding-bottom: 1.25rem !important;
+    max-height: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-left .btn-apply-now,
+  .hero-section .btn-apply-now {
+    margin-bottom: 0.75rem !important;
+    z-index: 12 !important;
+    position: relative !important;
   }
 
   .hero-center {
@@ -4998,6 +5037,9 @@ iframe {
   .hero-left {
     align-self: center !important;
     justify-content: center !important;
+    padding-bottom: 1.25rem !important;
+    max-height: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .hero-right {
@@ -5015,7 +5057,7 @@ iframe {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
-    z-index: 5 !important;
+    z-index: 2 !important;
     width: 100% !important;
   }
 
