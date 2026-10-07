@@ -3,6 +3,30 @@
 <head>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N94ZC5LW');</script>
+    <!-- End Google Tag Manager -->
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1243343920376799');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1243343920376799&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -26,7 +50,7 @@
       .hero-info-bar {
         background: linear-gradient(90deg, #1a237e 0%, #4527a0 32%, #7b1fa2 62%, #00acc1 100%) !important;
         position: relative !important;
-        z-index: 5 !important;
+        z-index: 2 !important;
         flex: none !important;
         flex-shrink: 0 !important;
         display: block !important;
@@ -34,6 +58,16 @@
         opacity: 1 !important;
         width: 100% !important;
         max-width: 100% !important;
+      }
+
+      .hero-bottom-bars {
+        position: relative !important;
+        z-index: 2 !important;
+      }
+
+      .hero-section .hero-container {
+        position: relative !important;
+        z-index: 3 !important;
       }
 
       .hero-scholarship-bar {
@@ -248,8 +282,9 @@
           max-height: 100% !important;
           overflow: hidden !important;
           align-items: end !important;
-          padding-bottom: 0 !important;
+          padding-bottom: clamp(1.75rem, 4.5vh, 2.75rem) !important;
           margin-bottom: 0 !important;
+          box-sizing: border-box !important;
         }
 
         .hero-left {
@@ -259,6 +294,18 @@
           min-height: 0 !important;
           margin-top: 0 !important;
           padding-top: 1rem !important;
+          padding-bottom: 1.75rem !important;
+          max-height: 100% !important;
+          box-sizing: border-box !important;
+          position: relative !important;
+          z-index: 4 !important;
+        }
+
+        .hero-left .btn-apply-now,
+        .hero-section .btn-apply-now {
+          margin-bottom: 1rem !important;
+          z-index: 12 !important;
+          position: relative !important;
         }
 
         .hero-section .hero-title {
@@ -486,15 +533,12 @@
         }
       }
     </style>
-
-     
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-N94ZC5LW');</script> 
- 
-
- 
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N94ZC5LW"  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> 
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N94ZC5LW"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <section class="hero-section section-global">
   <div class="container hero-container">
     <div class="hero-header">
@@ -1275,32 +1319,6 @@
 <script type="text/javascript"> var s=document.createElement("script"); s.type="text/javascript"; s.async=true;
 s.src="https://chatbot.in8.nopaperforms.com/en-gb/backend/bots/niaachtbtscpt.js/e815e394ee244cd1a8dc3bebaf8d81bf/a8b32b8ab432456a971900791d70c15b"; document.body.appendChild(s); </script>
 
-<script> 
-! function(f, b, e, v, n, t, s) { 
-if (f.fbq) return; 
-n = f.fbq = function() { 
-n.callMethod ? 
-n.callMethod.apply(n, arguments) : n.queue.push(arguments) 
-}; 
-if (!f._fbq) f._fbq = n; 
-n.push = n; 
-n.loaded = !0; 
-n.version = '2.0'; 
-n.queue = []; 
-t = b.createElement(e); 
-t.async = !0; 
-t.src = v; 
-s = b.getElementsByTagName(e)[0]; 
-s.parentNode.insertBefore(t, s) 
-}(window, document, 'script', 
-'https://connect.facebook.net/en_US/fbevents.js'); 
-fbq('init', '1243343920376799'); 
-fbq('track', 'PageView'); 
-</script> 
-
-<noscript> 
-<img height="1" width="1"  src="https://www.facebook.com/tr?id=1243343920376799&ev=PageView  &noscript=1" /> 
-</noscript> 
 <footer class="site-footer">
   <p class="text-center font-weight-bold">
     &copy; 2026 O.P. Jindal Global University. All Rights Reserved
